@@ -1,0 +1,48 @@
+<div class="conteiner">
+    <div class="eventos">
+        <h2 class="titulo">Recien Agregados</h2>
+        <div class="lista-eventos">
+          @for(evento of eventos; track $index) {
+            <mat-card class="evento-card" appearance="outlined"  [routerLink]="['/evento', evento.idEvento]">
+              <mat-card-header>
+                <mat-card-title-group>
+                  <mat-card-title>{{ evento.nombre }}</mat-card-title>
+                  <mat-card-subtitle>{{ evento.ubicacion }}</mat-card-subtitle>
+                 
+                  <img mat-card-lg-image  [src]="API_BASE_URL + evento.fotoRuta" alt="Imagen del evento" >
+                </mat-card-title-group>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ evento.descripcion }}</p>
+                <p>{{ darformatoFecha(evento.fecha)  }}</p>
+    
+              </mat-card-content>
+              </mat-card>
+            }
+        </div>
+    </div>
+    <div class="eventos">
+        <h2 class="titulo">No puedes faltar</h2>
+        <div class="lista-eventos">
+          @for(evento of eventos; track $index) {
+            <mat-card class="evento-card" appearance="outlined"  [routerLink]="['/evento', evento.idEvento]">
+              <mat-card-header>
+                <mat-card-title-group>
+                  <mat-card-title>{{ evento.nombre }}</mat-card-title>
+                  <mat-card-subtitle>{{ evento.ubicacion }}</mat-card-subtitle>
+                 
+                  <img mat-card-lg-image  [src]="API_BASE_URL + evento.fotoRuta" alt="Imagen del evento" >
+                </mat-card-title-group>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ evento.descripcion }}</p>
+                <p>{{ darformatoFecha(evento.fecha) }}</p>
+    
+              </mat-card-content>
+              </mat-card>
+            }
+        </div>
+
+
+    </div>
+</div>

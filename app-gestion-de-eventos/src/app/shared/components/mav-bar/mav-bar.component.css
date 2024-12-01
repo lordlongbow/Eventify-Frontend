@@ -1,0 +1,50 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom right, #cfe5f4, #d3f1e5);
+    color: #fff;
+}
+
+/*Imagen logo*/
+.imagen{
+    margin: 10px; 
+    border-radius: 40%;
+}
+
+
+/*Botones*/
+.menu_lista {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu_lista a {
+    width: 200px;
+    text-align: center; 
+}
+
+/*Buscador*/
+#div_menu_buscador{  
+    margin-right: 20px;
+}
+
+#div_menu_buscador  mat-form-field {
+    background-color: transparent;
+    width: 100%;
+}
+
+#div_menu_buscador  mat-form-field .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
+}
+
+#div_menu_buscador input {
+    color: white;
+    background-color: transparent;
+}
+
+/*
+
+
+
+*/

@@ -1,0 +1,70 @@
+.miPerfil-container {
+    background: linear-gradient(to bottom right, #99cbec, #d3f1e5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 70vh;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .profile-card {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .datosUsuario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imagenUsuario img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Imagen circular */
+    border: 3px solid #6a95d4; /* Resalta la imagen */
+    margin-bottom: 20px;
+  }
+  
+  .datos {
+    width: 100%;
+  }
+  
+  .dato {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .dato h6 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .dato p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    padding: 5px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  

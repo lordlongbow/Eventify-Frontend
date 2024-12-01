@@ -1,0 +1,35 @@
+<div class="mis-eventos-container">
+    <div class="titulo">
+      <h2>Mis Eventos</h2>
+    </div>
+  
+    <div class="nuevo">
+      <a routerLink="/nuevo"><mat-icon>add_circle</mat-icon></a>
+    </div>
+  
+    <div class="lista-eventos">
+      @for (evento of eventos; track $index) {
+        <mat-card class="example-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title>{{ evento.nombre }}</mat-card-title>
+              <mat-card-subtitle>{{ evento.ubicacion }}</mat-card-subtitle>
+             
+              <img mat-card-lg-image  [src]="API_BASE_URL + evento.fotoRuta" alt="Imagen del evento" >
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ evento.descripcion }}</p>
+            <p>{{ darFormatoFecha(evento.fecha) }}</p>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <a routerLink="/editar/{{ evento.idEvento }}"><mat-icon>edit</mat-icon></a>
+            <a (click)="eliminar(evento.idEvento)"><mat-icon>delete</mat-icon></a>
+            <a routerLink="/evento/{{ evento.idEvento }}"><mat-icon>visibility</mat-icon></a>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+  
