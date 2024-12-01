@@ -123,9 +123,6 @@ const asistenteController = {
     console.log("en la funcion");
 
     const id = Auxiliars.verifyToken(req, res);
-    console.log('ID del usuario logueado:', id);
-    console.log(req.session);
-  
     // Verificar si el ID de usuario está presente
     Asistente.obtenerAsistente(id, (error, result) => {
       if (error) {
@@ -138,26 +135,17 @@ const asistenteController = {
   },
   loginAsistente: async function (req, res) {
     const { username, password } = req.body;
- 
     try {
-
       const usuario = await Asistente.obtenerAsistentePorUsername(username);
-  
       if (usuario.length == 0) {
-
         return res.status(400).json({ error: "Asistente no existe" });
       }
-      
-
-
       const passwordHasheado = usuario[0].password;
       if (bcrypt.compareSync(password, passwordHasheado)) {
       
         const token = jwt.sign({ id: usuario[0].idAsistente }, process.env.JWT_SECRET || "Los eventos son lo mas ");
         req.session.token = token;
         req.session.idUsuarioLogueado = usuario[0].idAsistente;
-        console.log("Token generado:", token);
-        console.log("ID del usuario logueado:", req.session.idUsuarioLogueado);
         return res.status(200).json({ success: true , mensaje: "Asistente logueado", token });
       } else {
        
@@ -170,10 +158,8 @@ const asistenteController = {
   },
   registroAsistente: async (req, res) => {
     let { nombre, domicilio, email, estado, username, password } = req.body;
-    console.log("en registro body es:" + req.body);
     try {
       const usuario = await Asistente.obtenerAsistenteXEmail(email);
-      console.log(usuario)
       if (usuario.length > 0) {
         return res
           .status(400)
@@ -193,10 +179,8 @@ const asistenteController = {
         username,
         claveHasheada
       );
-      console.log("paso")
       res.status(201).json({ success: true, message: "Registro exitoso" });
     } catch (error) {
-      console.error("Error en el registro:", error);
       res.status(500).json({ success: false, message: "Error en el registro" });
     }
   },
@@ -206,27 +190,18 @@ const asistenteController = {
     res.status(200).json({ success: true, message: "Sesion cerrada" });
   },
 perfilAsistente: async function (req, res) {
-  console.log("En la función perfilAsistente");
-  console.log("Cuerpo de la petición:", req.body);
-  console.log("Parámetros de la URL:", req.params);
-
   const id = req.params.id;
   if (!id) {
       return res.status(401).json({ error: "Usuario no autenticado" });
   }
 
-  console.log("ID del usuario logueado:", id);
-
   try {
       // Espera el resultado del modelo
       const result = await Asistente.obtenerMiperfil(id);
-      console.log("Resultado obtenido:", result);
-
+  
       if (!result) {
           return res.status(404).json({ error: "Perfil no encontrado" });
       }
-
-      console.log("Perfil obtenido:", result);
       return res.status(200).json(result);
   } catch (error) {
       console.error("Error al obtener el perfil:", error);

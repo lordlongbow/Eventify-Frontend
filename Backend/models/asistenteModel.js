@@ -56,36 +56,17 @@ const Asistente = {
         })
         
     },
-
-
-    /*
-    obtenerMiperfil: function (id) {
-        console.log("En el modelo obtenerMiperfil");
-        
-        const sql = `CALL ObtenerMiPerfil(?)`;
-       
-        connection.query(sql, [id], (error, result) => {
-            if (error) {
-                console.error('Error en la consulta SQL:', error);
-            } else {
-                console.log('Resultado de la consulta:', result[0]);
-                return result[0]
-            }
-        });
-    }*/ 
     
         obtenerMiperfil: function (id) {
-            console.log("En el modelo obtenerMiperfil");
             const sql = `CALL ObtenerMiPerfil(?)`;
             
             return new Promise((resolve, reject) => {
                 connection.query(sql, [id], (error, result) => {
                     if (error) {
                         console.error('Error en la consulta SQL:', error);
-                        reject(error); // Rechaza la promesa si hay un error
-                    } else {
+                        reject(error);
                         console.log('Resultado de la consulta:', result[0]);
-                        resolve(result[0]); // Resuelve la promesa con el resultado
+                        resolve(result[0]); 
                     }
                 });
             });
@@ -96,24 +77,3 @@ const Asistente = {
 };
 
 module.exports = Asistente;
-
-/* obtenerPerfil: function(id){
-        console.log("en la funciona");
-        const sql = 'SELECT nombre, domicilio, email, estado, username, fotoRuta FROM asistente WHERE idAsistente = ?';
-        console.log(sql, [id]);
-        return new Promise((resolve, reject) => {
-            connection.query(sql, [id], (error, result) => {
-              console.log("Ejecución del callback");
-              if (error) {
-                console.error("Error en la consulta SQL:", error);
-                reject(error);
-              } else {
-                console.log("Resultado de la consulta:", result);
-                resolve(result);
-              }
-            });
-          }).catch(err => {
-            console.error("Error al ejecutar la función obtenerPerfil:", err);
-          });
-          
-      }, */

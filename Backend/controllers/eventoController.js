@@ -74,9 +74,6 @@ const eventoController = {
   try {
     const { nombre, fecha, ubicacion, descripcion } = req.body;
     const imageFile = req.file;
-    console.log('Datos del cuerpo:', req.body);
-    console.log('Archivo recibido:', imageFile);
-
     if (!imageFile) {
       console.error('No se cargó ninguna imagen');
       return res.status(400).json({ error: 'No se ha cargado ninguna imagen' });
@@ -117,14 +114,8 @@ misEventos: async function (req, res) {
  let idUsuarioLogueado = Auxiliars.verifyToken(req, res);   
 
   try {
-    console.log("Estoy aquí - obteniendo eventos");
 
-    // Llamamos a la función que devuelve la promesa
     const eventos = await Evento.obtenerMisEventos(idUsuarioLogueado);
-
-    console.log('Eventos obtenidos:', eventos);  
-
-    // Respondemos con los eventos obtenidos 
     return res.status(200).json({success: true , eventos: eventos}); 
   } catch (error) {
     console.error('Error al obtener mis eventos:', error);
@@ -134,45 +125,3 @@ misEventos: async function (req, res) {
 
 };
 module.exports = eventoController;  
-
-/** misEventos: async function (req, res) {
-  const authHeader = req.headers.authorization;
-console.log("Estoy aqui" + req.session.idUsuarioLogueado);
-console.log("AuthHeader: "+authHeader);
-  // Verificamos el token JWT
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ error: 'No se proporcionó un token válido' });
-  }
-
-  const token = authHeader.split(' ')[1];
-
-  console.log("token "+ token)
-  let idUsuarioLogueado;
-  try {
-    const decoded = jwt.verify(token, 'Los eventos son lo mas '); 
-    idUsuarioLogueado = decoded.id;
-    console.log("id usuario" + idUsuarioLogueado);
-  } catch (error) {
-    return res.status(401).json({ error: 'Token inválido o expirado', detalle: error.message });
-  } 
-    
-
-  try {
-    console.log("Estoy aquí - obteniendo eventos");
-
-    // Llamamos a la función que devuelve la promesa
-    const eventos = await Evento.obtenerMisEventos(idUsuarioLogueado);
-
-    console.log('Eventos obtenidos:', eventos);  
-
-    // Respondemos con los eventos obtenidos 
-    return res.status(200).json({success: true , eventos: eventos}); 
-  } catch (error) {
-    console.error('Error al obtener mis eventos:', error);
-    return res.status(500).json({ error: 'Error al obtener mis eventos', detalle: error });
-  }
-}
-
-
-
-}*/

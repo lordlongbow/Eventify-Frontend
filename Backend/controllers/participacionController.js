@@ -55,9 +55,6 @@ const participacionController = {
     },
     listarConfirmados: function (req, res) {
         const idEvento = req.params.id; 
-        console.log("id del evento " + idEvento);
-    
-        // Verificar si los parámetros están definidos
         if (!idEvento) {
             console.log("Falta el id del evento");
             return res.status(400).send('Faltan parámetros');
@@ -75,9 +72,6 @@ const participacionController = {
     },
     misParticipaciones: function (req, res) {
         const idAsistente = Auxiliars.verifyToken(req, res);
-        console.log("id del asistente " + idAsistente);
-    
-        // Verificar si los parámetros están definidos
         if (!idAsistente) {
             console.log("Falta el id del asistente");
             return res.status(400).send('Faltan parámetros');
@@ -96,11 +90,7 @@ const participacionController = {
     detallesParticipacion(req,res) { 
         const idPaticipacion = req.params.id;
 
-        console.log("id de la participacion " + idPaticipacion);
-    
-        // Verificar si los parámetros están definidos
         if (!idPaticipacion) {
-            console.log("Falta el id de la participacion");
             return res.status(400).send('Faltan parámetros');
         }
     
@@ -109,8 +99,6 @@ const participacionController = {
                 console.error('Error al listar mis participaciones:', err);
                 return res.status(500).send('Error interno al listar mis participaciones');
             }
-    
-            console.log('Mis participaciones:', result);
             return res.status(200).json({ participaciones: result });  
         });
   
