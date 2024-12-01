@@ -1,0 +1,53 @@
+.mis-eventos-container{
+        background: linear-gradient(to bottom right, #99cbec, #d3f1e5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+
+
+a[routerLink="/nuevo"] {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 80px; 
+    height: 80px;
+    font-size: 60px; 
+    color: rgb(129, 197, 179);
+    text-decoration: none;
+}
+
+a[routerLink="/nuevo"] mat-icon {
+    font-size: 80px; 
+    width: 100%; 
+    height: 100%;
+}
+
+
+.lista-eventos {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.example-card {
+
+    max-width: 400px;
+    margin: 8px;
+    
+}
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

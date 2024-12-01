@@ -1,0 +1,71 @@
+.mis-certificaciones-container {
+    background: linear-gradient(to bottom right, #99cbec, #d3f1e5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 75vh;
+  }
+  
+ h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .lista-certificaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño flexible */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo */
+    justify-items: center;
+  }
+  
+  .example-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación al pasar el mouse */
+  }
+  
+  .example-card:hover {
+    transform: scale(1.03); /* Efecto de agrandado */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  }
+  
+  mat-card-title-group p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  button {
+    margin-top: 15px;
+    width: 80%;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Botón con sombra */
+    transition: background 0.3s, transform 0.2s; /* Animaciones suaves */
+  }
+  
+  button:hover {
+    background: #373e46; /* Color azul más intenso */
+    transform: translateY(-2px); /* Efecto de elevación */
+  }
+  
+  button:active {
+    transform: translateY(0); /* Respuesta al clic */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+  }
+  

@@ -1,0 +1,22 @@
+<div class="mis-certificaciones-container">
+    <div class="titulo">
+      <h2>Mis Certificaciones</h2>
+    </div>
+  
+    <div class="lista-certificaciones">
+      @for (certificado of certificados; track $index) {
+        <mat-card class="example-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title-group>
+             <p>{{ certificado.nombre }}</p>
+            </mat-card-title-group>
+          </mat-card-header>
+
+          <button mat-raised-button color="primary" (click)="generarCertificado(certificado.idParticipacion)">
+            Descargar Certificado
+          </button>
+        </mat-card>
+      }
+    </div>
+  </div>
+  

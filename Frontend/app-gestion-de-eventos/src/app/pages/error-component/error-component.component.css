@@ -1,0 +1,10 @@
+.errorContainer{
+margin: auto;
+text-align: center;
+}
+
+.imagen img{
+    margin: 10px; 
+    width: auto;
+    height: 300px;
+}
